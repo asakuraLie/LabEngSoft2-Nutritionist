@@ -1,0 +1,82 @@
+[
+    {
+        "model": "nutritionist.Evaluation",
+        "pk": 1,
+        "fields": {
+            "id": 1,
+            "patient": 1,
+            "date": "27/03",
+            "height": "160cm",
+            "weight": "60kg",
+            "restrictions": "VA",
+            "alcohol": "S",
+            "smoker": "W",
+            "delivery": "Almoço e janta de fins de semana",
+            "shopping": "Feira e atacado",
+            "living": "Dois amigos da faculdade",
+            "diets": "Keto diet e corte de açúcar",
+            "previousprofessional": "Não",
+            "previousprocess":
+              "Difícil pois foi uma mudança muito abrupta e não conseguiu manter a dieta, tendo muitas recaídas",
+            "previousweightloss":
+              "Muita perda de peso no início mas com rápido ganho de peso",
+            "sleepquality": "Dorme mal",
+            "sleephours": "5h-6h",
+            "sleeptime": "00h",
+            "sleepcomments": "Tem apneia do sono mas nunca tratou",
+            "activity": "Faz atividade física?",
+            "activityfrequency": "30 minutos por dia",
+            "activitycomment": "-",
+            "appetite": "I",
+            "chewing": "R",
+            "intestine": "V",
+            "evacuation": "-",
+            "urination": "-",
+            "supplements": "-",
+            "allergies": "-",
+            "intolerance": "-",
+            "aversions": "-",
+            "comments": "-"
+        }
+    },
+    {
+        "model": "nutritionist.Evaluation",
+        "pk": 2,
+        "fields": {
+            "id": 2,
+            "patient": 3,
+            "date": "27/03",
+            "height": "160cm",
+            "weight": "60kg",
+            "restrictions": "VE",
+            "alcohol": "E",
+            "smoker": "S",
+            "delivery": "Almoço e janta de fins de semana",
+            "shopping": "Feira e atacado",
+            "living": "Dois amigos da faculdade",
+            "diets": "Keto diet e corte de açúcar",
+            "previousprofessional": "Não",
+            "previousprocess":
+              "Difícil pois foi uma mudança muito abrupta e não conseguiu manter a dieta, tendo muitas recaídas",
+            "previousweightloss":
+              "Muita perda de peso no início mas com rápido ganho de peso",
+            "sleepquality": "Dorme mal",
+            "sleephours": "5h-6h",
+            "sleeptime": "00h",
+            "sleepcomments": "Tem apneia do sono mas nunca tratou",
+            "activity": "Faz atividade física?",
+            "activityfrequency": "30 minutos por dia",
+            "activitycomment": "-",
+            "appetite": "I",
+            "chewing": "R",
+            "intestine": "D",
+            "evacuation": "-",
+            "urination": "-",
+            "supplements": "-",
+            "allergies": "-",
+            "intolerance": "-",
+            "aversions": "-",
+            "comments": "-"
+        }
+    }
+]
