@@ -5,8 +5,8 @@
         "fields": {
             "id": 1,
             "patient": 1,
-            "date": "27/04",
-            "weight": "60kg",
+            "date": "2024-04-27",
+            "weight": "60",
             "imc": "20",
             "activity": "4x na semana",
             "appetite": "N",
@@ -22,8 +22,8 @@
         "fields": {
             "id": 2,
             "patient": 1,
-            "date": "20/05",
-            "weight": "62kg",
+            "date": "2024-05-20",
+            "weight": "62",
             "imc": "21",
             "activity": "5x na semana",
             "appetite": "N",
@@ -38,9 +38,26 @@
         "pk": 3,
         "fields": {
             "id": 3,
-            "patient": 1,
-            "date": "20/05",
-            "weight": "62kg",
+            "patient": 2,
+            "date": "2024-05-24",
+            "weight": "62",
+            "imc": "21",
+            "activity": "5x na semana",
+            "appetite": "I",
+            "chewing": "s",
+            "intestine": "C",
+            "sleep": "Melhor que nunca",
+            "comments": "Ainda nada a declarar"
+        }
+    },
+    {
+        "model": "nutritionist.Evolution",
+        "pk": 3,
+        "fields": {
+            "id": 3,
+            "patient": 2,
+            "date": "2024-05-24",
+            "weight": "62",
             "imc": "21",
             "activity": "5x na semana",
             "appetite": "I",
