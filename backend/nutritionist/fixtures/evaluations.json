@@ -5,6 +5,7 @@
         "fields": {
             "id": 1,
             "patient": 1,
+            "patientId": 1,
             "date": "2024-03-24",
             "height": "160",
             "weight": "60",
@@ -45,6 +46,7 @@
         "fields": {
             "id": 2,
             "patient": 3,
+            "patientId": 3,
             "date": "2024-04-24",
             "height": "160",
             "weight": "60",

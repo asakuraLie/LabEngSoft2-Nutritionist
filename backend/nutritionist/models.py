@@ -37,6 +37,7 @@ class Nutritionist(models.Model):
 
 class Appointment(models.Model):
     professional = models.ForeignKey(Nutritionist, on_delete=models.CASCADE, related_name="appointments")
+    patientId = models.PositiveIntegerField(unique=True)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="appointments", null=True, blank=True)
     datetime = models.DateTimeField(null=False, blank=False)
     is_online = models.BooleanField(null=False, blank=False)
@@ -59,6 +60,7 @@ class Event(models.Model):
 
 class Evaluation(models.Model):
     patient = models.OneToOneField(Patient, on_delete=models.CASCADE, related_name="evaluation")
+    patientId = models.PositiveIntegerField(unique=True)
     date = models.DateField(null=False, blank=False)
     height = models.PositiveBigIntegerField(null=False, blank=False)
     weight = models.PositiveBigIntegerField(null=False, blank=False)
@@ -95,6 +97,7 @@ class Evaluation(models.Model):
     
 class Evolution(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="evolution")
+    patientId = models.PositiveIntegerField()
     date = models.DateField(null=False, blank=False)
     weight = models.PositiveBigIntegerField(max_length=255, null=False, blank=False)
     imc = models.PositiveIntegerField(max_length=255, null=False, blank=False)
@@ -110,6 +113,7 @@ class Evolution(models.Model):
     
 class Diet(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="diet")
+    patientId = models.PositiveIntegerField()
     name = models.CharField(max_length=255, null=False, blank=False)
     file = models.FileField(upload_to='diet/')
     

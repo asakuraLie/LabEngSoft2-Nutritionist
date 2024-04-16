@@ -180,6 +180,16 @@ class EvaluationView(ModelViewSet):
         serializer = EvaluationSerializers(queryset)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def retrieve_by_patient(self, request, pk):
+        queryset = Evaluation.objects.filter(patientId=pk).first()
+
+        if not queryset:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = EvaluationSerializers(queryset)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class EvolutionView(ModelViewSet):
     
@@ -226,6 +236,16 @@ class EvolutionView(ModelViewSet):
 
         return Response(serializer.data, status=status.HTTP_200_OK)
     
+    def retrieve_by_patient(self, request, pk):
+        queryset = Evolution.objects.filter(patientId=pk)
+
+        if not queryset:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = EvolutionSerializers(queryset, many=True)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
 class DietView(ModelViewSet):
     
     serializer_class = DietSerializers
@@ -255,6 +275,28 @@ class DietView(ModelViewSet):
         if not queryset:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
+        serializer = DietSerializers(queryset)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def retrieve_by_patient(self, request, pk):
+        queryset = Diet.objects.filter(patientId=pk)
+
+        if not queryset:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        serializer = DietSerializers(queryset, many=True)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def delete(self, request, *args, **kwargs):
+        pk = self.kwargs.get('pk')
+        queryset = Diet.objects.filter(pk=pk).first()
+
+        if not queryset:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+
+        queryset.delete()
         serializer = DietSerializers(queryset)
 
         return Response(serializer.data, status=status.HTTP_200_OK)

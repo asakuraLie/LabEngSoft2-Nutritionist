@@ -5,6 +5,7 @@
         "fields": {
             "id": 1,
             "patient": 1,
+            "patientId": 1,
             "date": "2024-04-27",
             "weight": "60",
             "imc": "20",
@@ -22,6 +23,7 @@
         "fields": {
             "id": 2,
             "patient": 1,
+            "patientId": 1,
             "date": "2024-05-20",
             "weight": "62",
             "imc": "21",
@@ -39,6 +41,7 @@
         "fields": {
             "id": 3,
             "patient": 2,
+            "patientId": 2,
             "date": "2024-05-24",
             "weight": "62",
             "imc": "21",
@@ -52,10 +55,11 @@
     },
     {
         "model": "nutritionist.Evolution",
-        "pk": 3,
+        "pk": 4,
         "fields": {
-            "id": 3,
+            "id": 4,
             "patient": 2,
+            "patientId": 2,
             "date": "2024-05-24",
             "weight": "62",
             "imc": "21",

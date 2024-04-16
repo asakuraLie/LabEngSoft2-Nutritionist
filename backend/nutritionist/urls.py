@@ -24,13 +24,17 @@ urlpatterns = [
     path("evaluation/create/", EvaluationView.as_view(actions={"post": "create"})),
     path("evaluation/<int:pk>/", EvaluationView.as_view(actions={"get": "retrieve"})),
     path("evaluation/<int:pk>/edit/", EvaluationView.as_view(actions={"put": "update"})),
+    path("evaluation_from_patient/<int:pk>/", EvaluationView.as_view(actions={"get": "retrieve_by_patient"})),
     # path evolution 
     path("evolution/list/", EvolutionView.as_view(actions={"get": "list_all"})),
     path("evolution/create/", EvolutionView.as_view(actions={"post": "create"})),
     path("evolution/<int:pk>/", EvolutionView.as_view(actions={"get": "retrieve"})),
     path("evolution/<int:pk>/edit/", EvolutionView.as_view(actions={"put": "update"})),
+    path("evolution_from_patient/<int:pk>/", EvolutionView.as_view(actions={"get": "retrieve_by_patient"})),
     #path diet
     path("diet/list/", DietView.as_view(actions={"get": "list_all"})),
     path("diet/create", DietView.as_view(actions={"post": "create"})),
-    path("diet/<int:pk>/", DietView.as_view(actions={"get": "retrieve"}))
+    path("diet/<int:pk>/", DietView.as_view(actions={"get": "retrieve"})),
+    path("diet_from_patient/<int:pk>/", DietView.as_view(actions={"get": "retrieve_by_patient"})),
+    path("diet/<int:pk>/delete", DietView.as_view(actions={"delete": "delete"}))
 ]
