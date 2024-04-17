@@ -145,13 +145,19 @@ class EvolutionView(ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
     def update(self, request, pk):
-        serializer = EvolutionSerializers(data=request.data)
-        
-        if not serializer.is_valid():
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-        queryset = Evolution.objects.filter(pk=pk).update(**serializer.validated_data)
-        response_serializer = EvolutionSerializers(queryset)
+       
+        evolution = Evolution.objects.filter(pk=pk).first()
+        evolution.date = request.data.get('date')
+        evolution.weight = request.data.get('weight')
+        evolution.imc = request.data.get('imc')
+        evolution.activity = request.data.get('activity')
+        evolution.appetite = request.data.get('appetite')
+        evolution.chewing = request.data.get('chewing')
+        evolution.intestine = request.data.get('intestine')
+        evolution.sleep = request.data.get('sleep')
+        evolution.comments = request.data.get('comments')
+        evolution.save()
+        response_serializer = EvolutionSerializers(evolution)
         
         return Response(response_serializer.data, status=status.HTTP_200_OK)
 
