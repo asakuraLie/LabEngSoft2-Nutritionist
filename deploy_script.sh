@@ -24,6 +24,6 @@ echo "Running migrations..."
 
 echo "Restarting the server..."
 # Skip actual restart in dry run
-[ "$DRY_RUN" != "true" ] && sudo systemctl restart myapp
+[ "$DRY_RUN" != "true" ] && screen -d -m pipenv run python manage.py runserver 0.0.0.0:8000
 
 echo "Deployment complete."
