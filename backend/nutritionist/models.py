@@ -1,10 +1,6 @@
 from django.db import models
 
-APPOINTMENT_OPTIONS = (
-    ('0', 'CANCELED'),
-    ('1', 'PENDING'),
-    ('2', 'CONFIRMED'),
-)
+from cpf_field.models import CPFField
 
 class Patient(models.Model):
     name = models.CharField(max_length=255, null=False, blank=False)
@@ -21,42 +17,21 @@ class Patient(models.Model):
         return str(self.name) + " - Patient: " + str(self.id)
     
 class Nutritionist(models.Model):
-    name = models.CharField(max_length=120, null=False, blank=False)
-    date_of_birth = models.DateField(null=False, blank=False)
+    id_user = models.PositiveIntegerField(unique=True)
+    first_name = models.CharField(max_length=255, null=False, blank=False)
+    last_name = models.CharField(max_length=255, null=False, blank=False, default="")
+    date_of_birth = models.DateField(blank=False, null=False)
+    email = models.EmailField(max_length=255, blank=False, unique=True, null=False)
     phone_number = models.CharField(max_length=15, blank=True, default="")
-    email = models.EmailField(max_length=255, unique=True, blank=False, null=False)
-    document = models.CharField(max_length=15, unique=True, blank=True, null=True)
     address = models.CharField(max_length=255, null=True, blank=True)
-    price = models.DecimalField(decimal_places=2, max_digits=10, null=False, blank=False)
+    cpf = CPFField("cpf", default="")
+    service = models.CharField(max_length=255, null=False, blank=False)
+    price = models.FloatField(default=100.0)
     is_online = models.BooleanField(default=1, null=False, blank=False)
-    summary = models.TextField(max_length=500, null=True, blank=True)
-    patients = models.ManyToManyField(Patient, blank=True, null=True)
+    bio = models.CharField(max_length=255, null=False, blank=False, default="")
     
     def __str__(self):
         return str(self.name) + " - Professional: " + str(self.id)
-
-class Appointment(models.Model):
-    professional = models.ForeignKey(Nutritionist, on_delete=models.CASCADE, related_name="appointments")
-    patientId = models.PositiveIntegerField(unique=True)
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="appointments", null=True, blank=True)
-    datetime = models.DateTimeField(null=False, blank=False)
-    is_online = models.BooleanField(null=False, blank=False)
-    address = models.CharField(max_length=255, null=True, blank=True)
-    status = models.CharField(max_length=20, choices=APPOINTMENT_OPTIONS, null=True, blank=True)
-
-    def __str__(self):
-        return str(self.professional) + " - Appoint: " + str(self.id)
-    
-class Event(models.Model):
-    appointment = models.ForeignKey(Appointment, on_delete=models.CASCADE, related_name="event")
-    title = models.CharField(max_length=255, null=False, blank=False)
-    start = models.DateTimeField(null=False, blank=False)
-    end = models.DateTimeField(null=False, blank=False)
-    desc = models.CharField(max_length=255, null=False, blank=False)
-    color = models.CharField(max_length=255, default="#CCBAF7")    
-    
-    def __str__(self):
-        return str(self.title) + " - Event: " + str(self.id) + " - Appoint: " + str(self.appointment)
 
 class Evaluation(models.Model):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE, related_name="evaluation")
