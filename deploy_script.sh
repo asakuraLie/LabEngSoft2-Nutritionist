@@ -12,7 +12,7 @@ echo "cd backend..."
 
 echo "Installing pipenv..."
 # Skip actual installation in dry run
-[ "$DRY_RUN" != "true" ] && pip install pipenv 
+[ "$DRY_RUN" != "true" ] && python3 -m pip install pipenv 
 
 echo "Installing dependencies..."
 # Skip actual installation in dry run
