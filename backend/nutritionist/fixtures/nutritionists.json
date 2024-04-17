@@ -1,0 +1,39 @@
+[
+    {
+      "model": "nutritionist.Nutritionist",
+      "pk": 1,
+      "fields": {
+        "id_user": 1,
+        "first_name": "Sophia",
+        "last_name": "Asakura",
+        "date_of_birth": "2001-06-26",
+        "phone_number": "996016370",
+        "cpf": "32223228801",
+        "is_online": true,
+        "email": "lucas@admin.com",
+        "service": "nutritionist",
+        "price": "100.00",
+        "address": "1",
+        "bio": "1"
+      }
+    },
+    {
+      "model": "nutritionist.Nutritionist",
+      "pk": 2,
+      "fields": {
+        "id_user": 2,
+        "first_name": "Sophia",
+        "last_name": "Asakura",
+        "date_of_birth": "2001-06-26",
+        "phone_number": "996016370",
+        "cpf": "32223228801",
+        "is_online": true,
+        "email": "soph@admin.com",
+        "service": "nutritionist",
+        "price": "100.00",
+        "address": "1",
+        "bio": "1"
+      }
+    }
+  ]
+  
