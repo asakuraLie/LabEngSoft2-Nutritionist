@@ -2,10 +2,6 @@
 
 DRY_RUN=$1
 
-echo "Pulling latest code from repository..."
-# Skip actual git pull in dry run
-[ "$DRY_RUN" != "true" ] && git pull origin main
-
 echo "cd backend..."
 # Skip actual git pull in dry run
 [ "$DRY_RUN" != "true" ] && cd backend
