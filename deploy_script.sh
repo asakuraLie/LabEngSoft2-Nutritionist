@@ -18,8 +18,12 @@ echo "Running migrations..."
 # Skip actual migrations in dry run
 [ "$DRY_RUN" != "true" ] && pipenv run python manage.py migrate
 
-echo "Restarting the server..."
+echo "Runserver..."
 # Skip actual restart in dry run
 [ "$DRY_RUN" != "true" ] && screen -d -m pipenv run python manage.py runserver 0.0.0.0:8000
+
+echo "Redirect port..."
+# Skip actual restart in dry run
+[ "$DRY_RUN" != "true" ] && sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-ports 8000
 
 echo "Deployment complete."
