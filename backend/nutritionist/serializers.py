@@ -6,11 +6,6 @@ class NutritionistSerializer(serializers.ModelSerializer):
     class Meta:
         model = Nutritionist
         fields = '__all__'
-        
-class PatientSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Patient
-        fields = "__all__"
     
 class EvaluationSerializers(serializers.ModelSerializer):
     class Meta:
@@ -25,4 +20,9 @@ class EvolutionSerializers(serializers.ModelSerializer):
 class DietSerializers(serializers.ModelSerializer):
     class Meta:
         model = Diet
+        fields = "__all__"
+        
+class PatientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Patient
         fields = "__all__"
