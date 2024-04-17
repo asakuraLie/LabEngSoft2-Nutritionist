@@ -23,10 +23,10 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-*rwdhx=atn5rf3e&@2pxfyh9@$c^t((h#2*poxy@%v+7$pt04='
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "django-insecure-*rwdhx=atn5rf3e&@2pxfyh9@$c^t((h#2*poxy@%v+7$pt04=")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = []
 
@@ -85,9 +85,13 @@ WSGI_APPLICATION = 'project_nutritionist.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DB_NAME", "nutritionist_service_db"),
+        "USER": os.getenv("DB_USER", "postgres"),
+        "PASSWORD": os.getenv("DB_PASSWORD", "postgres"),
+        "HOST": os.getenv("DB_HOST", "nutritionist-service-db.cpssys6guvh3.sa-east-1.rds.amazonaws.com"),
+        "PORT": os.getenv("DB_PORT", "5432"),
     }
 }
 
