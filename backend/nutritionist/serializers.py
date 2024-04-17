@@ -29,6 +29,11 @@ class EvaluationSerializers(serializers.ModelSerializer):
         model = Evaluation
         fields = "__all__"
         
+        extra_kwargs = {
+            'patient': {'validators': []},
+            'patientId': {'validators': []}, 
+        }
+        
 class EvolutionSerializers(serializers.ModelSerializer):
     class Meta:
         model = Evolution
