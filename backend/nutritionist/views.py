@@ -4,11 +4,13 @@ from rest_framework.viewsets import ModelViewSet
 
 from .models import Nutritionist, Patient, Evolution, Evaluation, Diet
 from .serializers import NutritionistSerializer, PatientSerializer, EvolutionSerializers, EvaluationSerializers, DietSerializers
+from .permissions import AllowPostOnlyPermission
 
 class NutritionistView(ModelViewSet):
     
     serializer_class = NutritionistSerializer
     queryset = Nutritionist.objects.all()
+    permission_classes = [AllowPostOnlyPermission,]
     
     def create(self, request):
         serializer = NutritionistSerializer(data=request.data)
