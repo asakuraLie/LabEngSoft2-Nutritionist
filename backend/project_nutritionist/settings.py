@@ -139,12 +139,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
-
-REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.IsAuthenticated",
-    ],
-    "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTTokenUserAuthentication",),
-}
-
-SIMPLE_JWT = {"SIGNING_KEY": os.getenv("SIGNING_KEY", "oc61xp)1pd#r5%%1a%_+nh2mo!rxd!iv(wc7-91*vs6t4oa#t%")}
